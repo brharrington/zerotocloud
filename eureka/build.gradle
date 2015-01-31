@@ -3,7 +3,7 @@ configurations.create('eureka') {
 }
 repositories { jcenter() }
 dependencies {
-    eureka('com.netflix.eureka:eureka-server:1.1.136') {
+    eureka('com.netflix.eureka:eureka-server:1.1.147') {
         transitive = false
     }
 }
