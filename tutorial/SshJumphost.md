@@ -69,6 +69,12 @@ The second command will prompt you to continue, hit Return. Both commands will t
     sudo apt-get update
     sudo apt-get install python-pip python-dev git default-jdk
 
+## 6. Install AWS CLI
+
+For detailed instructions see the [Amazon documentation](http://docs.aws.amazon.com/cli/latest/userguide/installing.html).
+It is typically sufficient to run:
+
+    sudo pip install awscli
 
 # Troubleshooting
 
