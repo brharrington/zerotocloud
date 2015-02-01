@@ -9,10 +9,11 @@ The following steps are to enable that integregation in a way that is compatible
 If you don't have the eureka--frontend ELB's DNS Name handy, go back to Asgard and find it.
 Make sure to use that DNS name below instead of just copying like you have in previous steps.
 
-    EUREKA_ELB=*ELB DNS NAME from Step 15*
+    EUREKA_ELB=*ELB DNS NAME from Step 14*
     cd ~/zerotocloud
-    ./gradlew :asgard:buildDeb
-    sudo aminate -e ec2_aptitude_linux -b ubuntu-base-ami-ebs asgard/build/distributions/asgard_1.0.0_all.deb
+    ./gradlew :asgard:bake
+
+To ensure that the `EUREKA_ELB` var is set on future attempts, it is recommended to add an export to the `.bash_profile` on the jumphost.
 
 ## Deploy
 
