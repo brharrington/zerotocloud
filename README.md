@@ -33,8 +33,8 @@ Feedback is always appreciated, please file an issue or a pull request to partic
 11. [Build and Bake BaseAMI](tutorial/BaseAMI.md)
 12. [Build and Bake Asgard](tutorial/AsgardBake.md)
 13. [Standup Asgard using Asgard](tutorial/AsgardStandalone.md)
-14. [Build and Bake Edda](tutorial/Edda.md)
-15. [Build and Bake Eureka](tutorial/Eureka.md)
+14. [Build and Bake Eureka](tutorial/Eureka.md)
+15. [Build and Bake Edda](tutorial/Edda.md)
 
 When all done, irrelevant of how far you get, make sure to read the Clean up instructions below so that you don't get charged for resources that you're not using.
 
