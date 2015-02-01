@@ -24,6 +24,13 @@ subprojects {
             }
         }
     }
+
+    task bake(type: Exec) {
+        executable "sudo"
+        args "aminate", "-e", "ec2_aptitude_linux", "-b", "ubuntu-base-ami-ebs", \
+             "build/distributions/${project.name}_1.0.0_all.deb"
+    }
+    bake.dependsOn = [buildDeb]
 }
 
 def region = project.hasProperty('region') ? property.region : 'us-west-2'
