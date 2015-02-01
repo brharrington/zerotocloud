@@ -22,3 +22,14 @@ Feel free to look at the script, to ensure there's no funny business going on he
 The last line uses <a href="http://gradle.org" target="_blank">Gradle</a> to run our script. 
 We'll be using Gradle as the backbone of the other scripts in the tutorial.
 Reviewing the Gradle scripts is an exercise left to the user.  
+
+Many of the gradle scripts assume that the variables from the `metadatavars` script will
+be set. To ensure they are available on subsequent logins to the jumphost it is convenient
+to add them to your profile, e.g.:
+
+```
+cat <<PROFILE > ~/.bash_profile
+#!/bin/sh
+eval \$(\$HOME/zerotocloud/baseami/root/usr/local/bin/metadatavars)
+PROFILE
+```
