@@ -8,8 +8,7 @@ It is designed for resiliency in the likely occurance of major catastrophies, fu
 ## Bake Eureka
 
     cd ~/zerotocloud
-    ./gradlew :eureka:buildDeb
-    sudo aminate -e ec2_aptitude_linux -b ubuntu-base-ami-ebs eureka/build/distributions/eureka_1.0.0_all.deb
+    ./gradlew :eureka:bake
 
 By now, you might be noticing a pattern, we build a DEB and bake it. This has become very routine and easily automated.
 
