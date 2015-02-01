@@ -4,8 +4,7 @@ Very similiar to how we built the Base AMI, we're going to build one AMI to buil
 In this case we're putting Asgard on top of the Base AMI.
  
     cd ~/zerotocloud
-    ./gradlew :asgard:buildDeb -Pasgard.password=th0r
-    sudo aminate -e ec2_aptitude_linux -b ubuntu-base-ami-ebs  asgard/build/distributions/asgard_1.0.0_all.deb
+    ./gradlew :asgard:bake -Pasgard.password=th0r
 
 In the second line, the argument is optional and can be changed. If left out, it'll default to "th0r".
 
