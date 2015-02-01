@@ -6,8 +6,7 @@ Using Edda we learn about our buckets, images, load balancers, tags, volumes, in
 ## Bake Edda
 
     cd ~/zerotocloud
-    ./gradlew :edda:buildDeb
-    sudo aminate -e ec2_aptitude_linux -b ubuntu-base-ami-ebs edda/build/distributions/edda_1.0.0_all.deb
+    ./gradlew :edda:bake
 
 ## Deploy Edda
 
