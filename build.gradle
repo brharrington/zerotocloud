@@ -26,8 +26,9 @@ subprojects {
     }
 
     task bake(type: Exec) {
+        String baseami = System.getProperty("baseami", "ubuntu-base-ami-ebs");
         executable "sudo"
-        args "aminate", "-e", "ec2_aptitude_linux", "-b", "ubuntu-base-ami-ebs", \
+        args "aminate", "-e", "ec2_aptitude_linux", "-b", baseami, \
              "build/distributions/${project.name}_1.0.0_all.deb"
     }
     bake.dependsOn = [buildDeb]
