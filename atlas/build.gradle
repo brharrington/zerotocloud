@@ -1,0 +1,38 @@
+
+repositories {
+    jcenter()
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    maven { url 'https://raw.githubusercontent.com/brharrington/rrd4j/repo' }
+}
+
+dependencies {
+    compile 'com.netflix.atlas:atlas-standalone:1.4.2-SNAPSHOT'
+}
+
+jar.doFirst {
+    manifest {
+        attributes(
+            'Main-Class': 'com.netflix.atlas.webapi.Main',
+            'Class-Path': configurations.runtime.collect { "libs/" + it.getName() }.join(' '))
+    }
+}
+
+ospackage {
+
+    // Copy in files specific to a given webapp
+    from('src/main/linux-root') {
+        into '/'
+    }
+
+    // Copy dependencies
+    from(configurations['runtime']) {
+        into '/var/lib/atlas/libs'
+    }
+
+    // Copy jar from this build
+    from(jar.archivePath) {
+        into '/var/lib/atlas'
+        rename(jar.archiveName, "main.jar")
+    }
+}
