@@ -34,7 +34,8 @@ Feedback is always appreciated, please file an issue or a pull request to partic
 12. [Build and Bake Asgard](tutorial/AsgardBake.md)
 13. [Standup Asgard using Asgard](tutorial/AsgardStandalone.md)
 14. [Build and Bake Eureka](tutorial/Eureka.md)
-15. [Build and Bake Edda](tutorial/Edda.md)
+15. [Enable Eureka Integration in Asgard](tutorial/EurekaAsgard.md)
+16. [Build and Bake Edda](tutorial/Edda.md)
 
 When all done, irrelevant of how far you get, make sure to read the Clean up instructions below so that you don't get charged for resources that you're not using.
 
@@ -45,7 +46,6 @@ Here are some additional exercises, which can help expand your knowledge of the 
 
 * [Karyon](tutorial/Karyon.md)
 * [Simian Army](tutorial/SimianArmy.md)
-* [Enable Eureka Integration in Asgard](tutorial/EurekaAsgard.md)
 * (TBD) [AWS CLI](tutorial/AwsCli.md)
 * (TBD) [Turbine](tutorial/Turbine.md)
 * (TBD) [ICE](tutorial/ICE.md)
