@@ -20,16 +20,18 @@ ospackage {
     // Defaults used by Asgard
     postInstall("perl -p -i -e 's/port=\"8080\"/port=\"7001\"/gi' /var/lib/tomcat7/conf/server.xml")
 
+    // Make sure you actually accept the Oracle license before choosing to use this option
     if (System.getProperty('baseami.includeOracleJdk8', 'false') == 'true') {
-        postInstall("add-apt-repository ppa:webupd8team/java")
-        postInstall("apt-get update")
-        postInstall("apt-get install oracle-java8-installer")
+        postInstall("add-apt-repository -y ppa:webupd8team/java")
+        postInstall("apt-get -y update")
+        postInstall("echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections")
+        postInstall("apt-get -y install oracle-java8-installer")
     }
 
     if (System.getProperty('baseami.includeOpenJdk8', 'false') == 'true') {
-        postInstall("add-apt-repository ppa:openjdk-r/ppa")
-        postInstall("apt-get update")
-        postInstall("apt-get install openjdk-8-jdk")
+        postInstall("add-apt-repository -y ppa:openjdk-r/ppa")
+        postInstall("apt-get -y update")
+        postInstall("apt-get -y install openjdk-8-jdk")
     }
 }
 
