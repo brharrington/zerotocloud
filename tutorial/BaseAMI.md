@@ -21,14 +21,6 @@ As stated above, you could use Chef or Puppet to instead.
     cd ~/zerotocloud
     ./gradlew :baseami:buildDeb
 
-The trusty foundation AMI include openjdk-7. Some apps may need java 8. To include OpenJDK 8 you can run:
-
-    ./gradlew :baseami:buildDeb -Dbaseami.includeOpenJdk8=true
-
-For Oracle JDK 8 run:
-
-    ./gradlew :baseami:buildDeb -Dbaseami.includeOracleJdk8=true
-
 In Gradle, we're using the ospackage plugin to build our packages. 
 It lets us build RPM and DEB files with a single syntax declarative syntax, in Java.
 E.g. this is what we're using to build the Base AMI:
