@@ -19,4 +19,17 @@ ospackage {
 
     // Defaults used by Asgard
     postInstall("perl -p -i -e 's/port=\"8080\"/port=\"7001\"/gi' /var/lib/tomcat7/conf/server.xml")
+
+    if (System.getProperty('baseami.includeOracleJdk8', 'false') == 'true') {
+        postInstall("add-apt-repository ppa:webupd8team/java")
+        postInstall("apt-get update")
+        postInstall("apt-get install oracle-java8-installer")
+    }
+
+    if (System.getProperty('baseami.includeOpenJdk8', 'false') == 'true') {
+        postInstall("add-apt-repository ppa:openjdk-r/ppa")
+        postInstall("apt-get update")
+        postInstall("apt-get install openjdk-8-jdk")
+    }
 }
+
