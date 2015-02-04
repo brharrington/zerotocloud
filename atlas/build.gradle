@@ -37,4 +37,8 @@ ospackage {
         into '/var/lib/atlas'
         rename(jar.archiveName, "main.jar")
     }
+
+    // Set java 8 as the primary
+    String javaVM = System.getProperty("default.java", "java-8-oracle")
+    postInstall("sudo update-java-alternatives --set $javaVM")
 }
