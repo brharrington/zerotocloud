@@ -11,6 +11,19 @@ apply plugin: 'nebula-ospackage-daemon'
 
 dependencies {
     compile 'com.netflix.atlas:atlas-standalone:1.4.2-SNAPSHOT'
+    compile 'com.netflix.iep:iep-eureka:0.1.6'
+    compile 'com.netflix.iep:iep-governator:0.1.6'
+    compile 'com.netflix.karyon2:karyon-admin-web:2.2.00-ALPHA7'
+    compile 'com.netflix.ribbon:ribbon-core:2.0-RC13'
+    compile 'com.netflix.ribbon:ribbon-httpclient:2.0-RC13'
+    compile 'com.netflix.ribbon:ribbon-loadbalancer:2.0-RC13'
+    compile 'com.netflix.ribbon:ribbon-eureka:2.0-RC13'
+    compile 'com.netflix.spectator:spectator-nflx-plugin:0.17'
+    compile 'com.netflix.spectator:spectator-ext-log4j2:0.17'
+    compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.1'
+    compile 'org.apache.logging.log4j:log4j-core:2.1'
+    compile 'org.apache.logging.log4j:log4j-jul:2.1'
+    compile 'org.apache.logging.log4j:log4j-jcl:2.1'
 }
 
 jar.doFirst {
