@@ -20,6 +20,8 @@ jar.doFirst {
     }
 }
 
+buildDeb.dependsOn = [jar]
+
 ospackage {
 
     // Copy in files specific to a given webapp
