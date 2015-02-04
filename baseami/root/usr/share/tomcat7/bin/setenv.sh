@@ -32,6 +32,8 @@ javaOptsHeapSizeCalc () {
 
 GCLOG=/var/log/tomcat7/gc.log
 
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+
 export JAVA_OPTS=""
 
 export CATALINA_OPTS=" \
