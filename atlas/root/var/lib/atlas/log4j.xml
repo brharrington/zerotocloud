@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration monitorInterval="5" status="warn">
+  <Properties>
+    <Property name="logDir">/var/log/atlas</Property>
+    <Property name="logArchiveDir">/var/log/atlas</Property>
+    <Property name="rolledSuffix">%d{yyyy-MM-dd-HH}.log.gz</Property>
+    <Property name="dfltPattern">%d{yyyy-MM-dd'T'HH:mm:ss.SSS} %-5level [%t] %class: %msg%n</Property>
+  </Properties>
+  <Appenders>
+    <Spectator name="Spectator"/>
+    <RollingFile name="Main"
+        fileName="${logDir}/main.log"
+        filePattern="${logArchiveDir}/main-${rolledSuffix}">
+      <PatternLayout pattern="${dfltPattern}"/>
+      <TimeBasedTriggeringPolicy />
+    </RollingFile>
+    <RollingFile name="Server"
+        fileName="${logDir}/server.log"
+        filePattern="${logArchiveDir}/server-${rolledSuffix}">
+      <PatternLayout pattern="${dfltPattern}"/>
+      <Filters>
+        <MarkerFilter marker="http-server" onMatch="ACCEPT" onMismatch="DENY"/>
+      </Filters>
+      <TimeBasedTriggeringPolicy />
+    </RollingFile>
+    <RollingFile name="Client"
+        fileName="${logDir}/client.log"
+        filePattern="${logArchiveDir}/client-${rolledSuffix}">
+      <PatternLayout pattern="${dfltPattern}"/>
+      <Filters>
+        <MarkerFilter marker="http-client" onMatch="ACCEPT" onMismatch="DENY"/>
+      </Filters>
+      <TimeBasedTriggeringPolicy />
+    </RollingFile>
+  </Appenders>
+  <Loggers>
+    <Logger name="com.netflix.spectator.sandbox.HttpLogEntry" level="debug" additivity="false">
+      <AppenderRef ref="Server"/>
+      <AppenderRef ref="Client"/>
+      <AppenderRef ref="Spectator"/>
+    </Logger>
+    <Logger name="com" level="warn"/>
+    <Logger name="org" level="warn"/>
+    <Logger name="io" level="warn"/>
+    <Logger name="com.netflix" level="warn"/>
+    <Logger name="com.netflix.iep" level="debug"/>
+    <Logger name="com.netflix.atlas.plugin" level="info"/>
+    <Logger name="com.netflix.atlas" level="info"/>
+    <Logger name="com.netflix.spectator" level="info"/>
+    <Logger name="com.netflix.spectator.gc.GcLogger" level="debug"/>
+
+    <!-- Stuff starting with just netflix is mostly karyon2 related. Hopefully other won't
+         start to use that packaging. For now set it to fatal because all 404s lead to stacktraces
+         in the log:
+         https://github.com/Netflix/karyon/issues/183 -->
+    <Logger name="netflix" level="fatal"/>
+    <Logger name="com.netflix.explorers" level="fatal"/>
+    <Logger name="com.sun.jersey" level="fatal"/>
+    <Logger name="freemarker.log" level="fatal"/>
+
+    <Root level="fatal">
+      <AppenderRef ref="Main"/>
+      <AppenderRef ref="Spectator"/>
+    </Root>
+  </Loggers>
+</Configuration>

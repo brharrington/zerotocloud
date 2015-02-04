@@ -7,6 +7,7 @@ repositories {
 }
 
 apply plugin: 'java'
+apply plugin: 'nebula-ospackage-daemon'
 
 dependencies {
     compile 'com.netflix.atlas:atlas-standalone:1.4.2-SNAPSHOT'
@@ -25,7 +26,7 @@ buildDeb.dependsOn = [jar]
 ospackage {
 
     // Copy in files specific to a given webapp
-    from('src/main/linux-root') {
+    from('root') {
         into '/'
     }
 
@@ -43,4 +44,9 @@ ospackage {
     // Set java 8 as the primary
     String javaVM = System.getProperty("default.java", "java-8-oracle")
     postInstall("sudo update-java-alternatives --set $javaVM")
+}
+
+daemon {
+    daemonName = "atlas"
+    command = "/var/lib/atlas/start.sh"
 }
