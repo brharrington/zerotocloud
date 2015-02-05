@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source /etc/profile.d/cloud_environment.sh
+
 typeset -x `stat --printf "userowner=%U\ngroupowner=%G\n" $0`
 
 logDir=/var/log/atlas
