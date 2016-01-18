@@ -4,7 +4,7 @@ We're creating a "jumphost" for two purposes.
 First to limit the impact of the network during the conference. 
 Second, it's how we do things at Netflix (we call it our bastion).
 It acts as a choke point to accessing instances in the cloud, since we require people to use it for SSHing to instances (the SSH keys live on this box). 
-It has the benefit of being able to track usages and for making changes in a cosolidated area.
+It has the benefit of being able to track usages and for making changes in a consolidated area.
 In some VPC scenarios where instances do not have public IPs, a jumphost is almost a requirement.
 
 1. Locate your Amazon Machine Image (AMI) at <a href="http://cloud-images.ubuntu.com/locator/ec2/" target="_blank">http://cloud-images.ubuntu.com/locator/ec2/</a>.  On the page's search box, type in "trusty amd64 us-west-2 ebs-ssd" and select the AMI ID.  The AMI ID will look like “[ami-ddaed3ed](https://console.aws.amazon.com/ec2/home?region=us-west-2#launchAmi=ami-ddaed3ed)”. Do not select the HVM version. And ebs version would work, but we are choosing an ssd ebs volume for speed. ![](images/Ubuntu_Amazon_EC2_AMI_Finder.png)
